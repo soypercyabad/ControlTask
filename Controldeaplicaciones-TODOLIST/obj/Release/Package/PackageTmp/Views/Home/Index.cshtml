@@ -1,0 +1,192 @@
+﻿@model Controldeaplicaciones_TODOLIST.Models.Task
+@{
+    ViewBag.Title = "TodoList";
+}
+
+<br />
+<h1 style="text-align:center">Lista de Tareas</h1>
+<br />
+
+<div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask">
+        Agregar Tarea <i class="fa-solid fa-file-circle-plus"></i>
+    </button>
+    @Model.Nombre
+</div>
+<br />
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table col-12" style="text-align:center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha/Hora Creacion</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha/Hora Termino</th>
+                    <th scope="col">Completado</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Html</td>
+                    <td>12-05-2022 14:52</td>
+                    <td>
+                        <span class="badge rounded-pill bg-success">Completado</span>
+                    </td>
+                    <td>16-05-2022 19:07</td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" checked disabled>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-arrows-rotate" style="color:green" data-bs-toggle="modal" data-bs-target="#updatetask"></i>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash" style="color:red" data-bs-toggle="modal" data-bs-target="#deletetask"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Css</td>
+                    <td>12-05-2022 14:52</td>
+                    <td>
+                        <span class="badge rounded-pill bg-danger">Pendiente</span>
+                    </td>
+                    <td>16-05-2022 19:07</td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-arrows-rotate" style="color:green" data-bs-toggle="modal" data-bs-target="#updatetask"></i>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash" style="color:red" data-bs-toggle="modal" data-bs-target="#deletetask"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Java</td>
+                    <td>12-05-2022 14:52</td>
+                    <td>
+                        <span class="badge rounded-pill bg-danger">Pendiente</span>
+                    </td>
+                    <td>16-05-2022 19:07</td>
+                    <td>
+                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="">
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-arrows-rotate" style="color:green" data-bs-toggle="modal" data-bs-target="#updatetask"></i>
+                    </td>
+                    <td>
+                        <i class="fa-solid fa-trash" style="color:red" data-bs-toggle="modal" data-bs-target="#deletetask"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal fade" id="newtask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Crear base de datos">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
+                    <p class="form-control" id="relojadd"> <p />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update-->
+<div class="modal fade" id="updatetask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Crear base de datos">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
+                    <p class="form-control" id="relojupdate"> </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delete-->
+<div class="modal fade" id="deletetask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">¿Esta seguro que quiere eliminar la tarea?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    Despues de eliminada la tarea no podra ser recuperada.
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success">Si, Estoy seguro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function muestraReloj() {
+        var fechaHora = new Date();
+        var horas = fechaHora.getHours();
+        var minutos = fechaHora.getMinutes();
+        var segundos = fechaHora.getSeconds();
+        var dias = fechaHora.getDate();
+        var meses = (fechaHora.getMonth()) + 1;
+        var anos = fechaHora.getFullYear();
+
+        if (horas < 10) { horas = '0' + horas; }
+        if (minutos < 10) { minutos = '0' + minutos; }
+        if (segundos < 10) { segundos = '0' + segundos; }
+        if (dias < 10) { dias = '0' + dias; }
+        if (meses < 10) { meses = '0' + meses; }
+
+        document.getElementById("relojadd").innerHTML = dias + '-' + meses + '-' + anos + ' ' + horas + ':' + minutos + ':' + segundos;
+        document.getElementById("relojupdate").innerHTML = dias + '-' + meses + '-' + anos + ' ' + horas + ':' + minutos;
+    }
+
+    window.onload = function () {
+        setInterval(muestraReloj, 1000);
+    }
+
+</script>

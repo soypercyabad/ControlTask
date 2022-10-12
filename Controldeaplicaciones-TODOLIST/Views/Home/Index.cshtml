@@ -1,0 +1,96 @@
+﻿@model Controldeaplicaciones_TODOLIST.Models.Task
+@{
+    ViewBag.Title = "TodoList";
+}
+
+<br />
+<h1 style="text-align:center">Lista de Tareas</h1>
+<br />
+
+<div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask">
+        Agregar Tarea <i class="fa-solid fa-file-circle-plus"></i>
+    </button>
+</div>
+<br />
+
+<div class="col-md-12">
+    <div class="table-responsive" >
+        <table class="table col-12" style="text-align:center">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Fecha/Hora Creacion</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Fecha/Hora Termino</th>
+                    <th scope="col">Completado</th>
+                    <th scope="col">Actualizar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="bodyTabla">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal fade" id="newtask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control" id="nameadd" placeholder="Crear base de datos">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
+                    <p class="form-control" id="relojadd"> <p />
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="Agregartask()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update-->
+<div class="modal fade" id="updatetask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3" hidden>
+                    <label for="exampleFormControlInput1" class="form-label">Id de la tarea</label>
+                    <input type="text" class="form-control" id="idupdate" placeholder="Id" vulue="valor.Id">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control" id="nameupdate" value="">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
+                    <input type="text" class="form-control" id="timeupdate" placeholder="00-00-0000 00:00:00">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="ActualizarTarea()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
