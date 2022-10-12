@@ -47,7 +47,7 @@
             <div class="modal-body">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
-                    <input type="text" class="form-control" id="nameadd" placeholder="Crear base de datos">
+                    <input type="text" class="form-control" id="nameadd" placeholder="Crear base de dato" required>
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
@@ -74,19 +74,19 @@
             <div class="modal-body">
                 <div class="mb-3" hidden>
                     <label for="exampleFormControlInput1" class="form-label">Id de la tarea</label>
-                    <input type="text" class="form-control" id="idupdate" placeholder="Id" vulue="valor.Id">
+                    <input type="text" class="form-control" id="idupdate" placeholder="Id">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
-                    <input type="text" class="form-control" id="nameupdate" value="">
+                    <input type="text" class="form-control" id="nameupdate">
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
-                    <input type="text" class="form-control" id="timeupdate" placeholder="00-00-0000 00:00:00">
+                    <input type="text" class="form-control" id="timeupdate" disabled>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="ActualizarTarea()">Guardar</button>
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="Editartarea()">Guardar</button>
                 </div>
             </div>
         </div>

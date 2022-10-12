@@ -2,6 +2,19 @@
 //Llenar las tablas al cargar el documento
 $(document).ready(function () {
     llenaTablas();
+
+    ////Pasar valores al modal
+    //$(document).on('click', '.edit', function () {
+    //    var id = $(this).val();
+    //    var cod = $('#tbid' + id).text();
+    //    var name = $('#tbname' + id).text();
+    //    var fecha = $('#tbdatec' + id).text();
+
+    //    $('#updatetask').modal('show');
+    //    $('#idupdate').val(cod);
+    //    $('#nameupdate').val(name);
+    //    $('#timeupdate').val(fecha);
+    //});
 });
 
 //Funcion de LLenar tablas
@@ -19,21 +32,22 @@ function llenaTablas() {
                 let Statuscheck = valor.Estado ? "checked" : ""; //Valida si el estado es true o false - Para Mostrar el estado del checkbox
                 let Statusvicheck = valor.Estado ? "disabled" : ""; //Valida si el estado es true o false - Para Mostrar la visibilidad del checkbox
                 let Datefinish = valor.Estado ? moment(valor.Fechater).format('DD-MM-YYYY  HH:mm:ss') : " "; //Valida si el estado es true o false - Para Mostrar la visibilidad del checkbox
+                let Updatemodal = valor.Estado ? "" : "#updatetask"; //Valida si el estado es true o false - Para Mostrar la visibilidad del update
 
                 var codigoHtml =
                     "<tr>" +
-                    "<th scope=\"row\">" + valor.Id + "</th>" +
-                    "<td>" + valor.Nombre + "</td>" +
-                    "<td>" + moment(valor.Fechare).format('DD-MM-YYYY  HH:mm:ss') + "</td> " +
-                    "<td>" +
+                    "<th id=\"tbid\" scope=\"row\">" + valor.Id + "</th>" +
+                    "<td id=\"tbname\"><span>" + valor.Nombre + "</span></td>" +
+                    "<td id=\"tbdatec\">" + moment(valor.Fechare).format('DD-MM-YYYY  HH:mm:ss') + "</td> " +
+                    "<td id=\"tbstatus\">" +
                     "    <span class=\"badge rounded-pill bg-" + statusHex + "\">" + statusTxt + "</span>" +
                     "</td>" +
-                    "<td>" + Datefinish + "</td>" +
+                    "<td id=\"tbdatef\">" + Datefinish + "</td>" +
                     "<td>" +
                     "    <input class=\"form-check-input\" type=\"checkbox\" id=\"checkboxNoLabel\" onclick=\"cambiostatus(" + valor.Id + ")\"" + Statuscheck + " " + Statusvicheck + ">" +
                     "</td>" +
                     "<td>" +
-                    "    <i class=\"fa-solid fa-arrows-rotate\" valu=" + valor.Id + " style=\"color:green\" data-bs-toggle=\"modal\" data-bs-target=\"#updatetask\" onclick=\"llenarmoadalupdate(" + valor.Id + ","+ valor.Nombre + "," + valor.Fechacre + ")\"></i>" +
+                    "    <i class=\"fa-solid fa-arrows-rotate edit\" valu=" + valor.Id + " style=\"color:green\" data-bs-toggle=\"modal\" data-bs-target=\"" + Updatemodal +"\" onclick=\"ActualizarTarea(" + valor.Id + ") \"></i>" +
                     "</td>" +
                     "<td>" +
                     "    <i class=\"fa-solid fa-trash\" style=\"color:red\" onclick=\"Eliminar(" + valor.Id + ")\"></i>" +
@@ -87,12 +101,14 @@ function Agregartask() {
     });
 }
 
-//Funcion para cambiar estados
+//Funcion para cambiar Estado
 function cambiostatus(id) {
     var miCheckbox = document.getElementById('checkboxNoLabel');
     if (miCheckbox.click) {
 
-        let objtask = 1;
+        let cod = id;
+
+        let objtask = { Id: cod }
 
         $.ajax({
             type: "POST",
@@ -106,9 +122,6 @@ function cambiostatus(id) {
                     '¡Has dado por finalizado la tarea',
                     'info'
                 )
-
-                //Refrescar la pagina
-                $("#exampleFormControlInput1").val(data.Nombre);
                 llenaTablas()
             },
             error: function () {
@@ -124,20 +137,10 @@ function cambiostatus(id) {
 
 }
 
-function llenarmoadalupdate(id, nombre, fecha) {
-    $("#idupdate").val(id);
-    $("#nameupdate").val(nombre);
-    ("#timeupdate").val(fecha);
-}
-
-//Funcion de actualizar
+//Funcion de Actualizar
 function ActualizarTarea(id) {
 
-    let idupdt = $("#idupdate").val();
-    let nameupdt = $("#nameupdate").val();
-    let timeupdt = $("#timeupdate").val();
-
-    let objtask = { Id : idupdt, Nombre: nameupdt, Fechacre: timeupdt };
+    let objtask = { Id: id};
 
     $.ajax({
         type: "POST",
@@ -145,18 +148,47 @@ function ActualizarTarea(id) {
         dataType: "json",
         data: objtask,
         success: function (data) {
-
-
-            Swal.fire(
-                '¡Actualizado!',
-                '¡Tu tarea ha sido actualizada!',
-                'success'
-            )
-
             //Refrescar la pagina
+            $("#idupdate").val(data.Id);
             $("#nameupdate").val(data.Nombre);
-            $("#timeupdate").val(data.FechaCre);
+            $("#timeupdate").val(moment(data.Fechacre).format('DD-MM-YYYY  HH:mm:ss'));
+
+            //llenaTablas()
+        },
+        error: function () {
+            Swal.fire(
+                'Oopss!',
+                '¡No se pudo actualizar tu tarea!',
+                'error'
+            )
+        }
+    });
+}
+
+//Funcion de Editar 
+function Editartarea() {
+
+    let nameadd = $("#nameupdate").val();
+
+    let objtask = { Nombre: nameadd};
+
+    $.ajax({
+        type: "POST",
+        url: "Home/Editar",
+        dataType: "json",
+        data: objtask,
+        success: function (data) {
             llenaTablas()
+            Swal.fire({
+                icon: 'success',
+                title: 'Felicidades!',
+                text: '¡Tu tarea ha sido actualizada!',
+            })
+
+            $('#idupdate').val('');
+            $('#nameupdate').val('');
+            $('#timeupdate').val('');
+
         },
         error: function () {
             Swal.fire(
@@ -207,6 +239,10 @@ function Eliminar() {
             });
         }
     })
+
+
+
+
 }
 
 
