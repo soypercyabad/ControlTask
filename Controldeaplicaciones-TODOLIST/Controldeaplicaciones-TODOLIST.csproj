@@ -167,11 +167,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\datatables.min.css" />
-    <Content Include="Content\datatables.min.js" />
     <Content Include="Content\Datetime.js" />
     <Content Include="Content\moment.js" />
-    <Content Include="Content\Scriptsaction.js" />
+    <Content Include="Content\main.js" />
     <Content Include="Content\sweetalert2.all.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

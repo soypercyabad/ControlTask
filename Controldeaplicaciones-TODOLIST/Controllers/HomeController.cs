@@ -32,54 +32,132 @@ namespace Controldeaplicaciones_TODOLIST.Controllers
             {
                 Id = 1,
                 Nombre = "Html",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = false,
-                Fechater = new DateTime(2022, 11, 12, 14, 15, 16)
+                Estado = 0,
+                Fechater = new DateTime(2022, 11, 12, 14, 15, 16),
+                Prioridad = "Alta"
             });
 
             lstTask.Add(new Task
             {
                 Id = 2,
                 Nombre = "Css",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = true,
-                Fechater = new DateTime(2022, 02, 08, 20, 07, 06)
+                Estado = 1,
+                Fechater = new DateTime(2022, 02, 08, 20, 07, 06),
+                Prioridad = "Alta"
             });
 
             lstTask.Add(new Task
             {
                 Id = 3,
                 Nombre = "Base de Datos",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = false,
-                Fechater = new DateTime(2022, 02, 08, 17, 00, 16)
+                Estado = 0,
+                Fechater = new DateTime(2022, 02, 08, 17, 00, 16),
+                Prioridad = "Media"
             });
 
             lstTask.Add(new Task
             {
                 Id = 4,
                 Nombre = "JavaScript",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = false,
-                Fechater = new DateTime(2022, 02, 08, 21, 00, 16)
+                Estado = 1,
+                Fechater = new DateTime(2022, 02, 08, 21, 00, 16),
+                Prioridad = "Media"
             });
 
             lstTask.Add(new Task
             {
                 Id = 5,
                 Nombre = "Boostrap",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = true,
-                Fechater = new DateTime(2022, 02, 08, 13, 00, 16)
+                Estado = 1,
+                Fechater = new DateTime(2022, 02, 08, 13, 00, 16),
+                Prioridad = "Baja"
             });
 
             lstTask.Add(new Task
             {
                 Id = 6,
                 Nombre = "Php",
+                Nota = "Programar lo antes posible",
                 Fechacre = DateTime.Now,
-                Estado = true,
-                Fechater = new DateTime(2022, 02, 08, 18, 00, 16)
+                Estado = 1,
+                Fechater = new DateTime(2022, 02, 08, 18, 00, 16),
+                Prioridad = "Baja"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 7,
+                Nombre = "Html",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 0,
+                Fechater = new DateTime(2022, 11, 12, 14, 15, 16),
+                Prioridad = "Alta"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 8,
+                Nombre = "Css",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 1,
+                Fechater = new DateTime(2022, 02, 08, 20, 07, 06),
+                Prioridad = "Alta"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 9,
+                Nombre = "Base de Datos",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 0,
+                Fechater = new DateTime(2022, 02, 08, 17, 00, 16),
+                Prioridad = "Media"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 10,
+                Nombre = "JavaScript",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 0,
+                Fechater = new DateTime(2022, 02, 08, 21, 00, 16),
+                Prioridad = "Media"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 11,
+                Nombre = "Boostrap",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 0,
+                Fechater = new DateTime(2022, 02, 08, 13, 00, 16),
+                Prioridad = "Baja"
+            });
+
+            lstTask.Add(new Task
+            {
+                Id = 12,
+                Nombre = "Php",
+                Nota = "Programar lo antes posible",
+                Fechacre = DateTime.Now,
+                Estado = 0,
+                Fechater = new DateTime(2022, 02, 08, 18, 00, 16),
+                Prioridad = "Baja"
             });
 
             #endregion
@@ -117,7 +195,7 @@ namespace Controldeaplicaciones_TODOLIST.Controllers
                 if (item.Id == _ojbTask.Id)
                 {
                     //Cambiar estado
-                    item.Estado = true;
+                    item.Estado = 1;
                 }
             }
             return Json(lstTask); ;
