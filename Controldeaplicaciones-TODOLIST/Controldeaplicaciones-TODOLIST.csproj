@@ -159,14 +159,19 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Models\ConecctionDB.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\data.js" />
+    <Content Include="Content\datatables.css" />
+    <Content Include="Content\datatables.min.js" />
     <Content Include="Content\Datetime.js" />
     <Content Include="Content\moment.js" />
     <Content Include="Content\main.js" />
