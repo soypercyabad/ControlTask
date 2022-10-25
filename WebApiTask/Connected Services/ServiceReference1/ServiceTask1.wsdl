@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://schemas.microsoft.com/ws/2005/02/mex/bindings" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServiceTask" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://schemas.microsoft.com/ws/2005/02/mex/bindings" location="http://localhost:49913/ServiceTask.svc?wsdl=wsdl0" />
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:49913/ServiceTask.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:49913/ServiceTask.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:49913/ServiceTask.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfTask" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITask_GetTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasks" />
+  </wsdl:message>
+  <wsdl:message name="ITask_GetTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ListPriority_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListPriority" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ListPriority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListPriorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ListId_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListId" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ListId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_InsertTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTask" />
+  </wsdl:message>
+  <wsdl:message name="ITask_InsertTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_EditTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditTask" />
+  </wsdl:message>
+  <wsdl:message name="ITask_EditTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ChangeStatusTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusTask" />
+  </wsdl:message>
+  <wsdl:message name="ITask_ChangeStatusTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITask_DeleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="ITask_DeleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITask">
+    <wsdl:operation name="GetTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/GetTasks" message="tns:ITask_GetTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/GetTasksResponse" message="tns:ITask_GetTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListPriority">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/ListPriority" message="tns:ITask_ListPriority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/ListPriorityResponse" message="tns:ITask_ListPriority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListId">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/ListId" message="tns:ITask_ListId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/ListIdResponse" message="tns:ITask_ListId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/InsertTask" message="tns:ITask_InsertTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/InsertTaskResponse" message="tns:ITask_InsertTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/EditTask" message="tns:ITask_EditTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/EditTaskResponse" message="tns:ITask_EditTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatusTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/ChangeStatusTask" message="tns:ITask_ChangeStatusTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/ChangeStatusTaskResponse" message="tns:ITask_ChangeStatusTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITask/DeleteTask" message="tns:ITask_DeleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITask/DeleteTaskResponse" message="tns:ITask_DeleteTask_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="ServiceTask">
+    <wsdl:port name="MetadataExchangeHttpBinding_ITask" binding="i0:MetadataExchangeHttpBinding_ITask">
+      <soap12:address location="http://localhost:49913/ServiceTask.svc/mex" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:49913/ServiceTask.svc/mex</wsa10:Address>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\bin\WcfTask.dll.config
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\bin\WcfTask.dll
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\bin\WcfTask.pdb
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\obj\Debug\WcfTask.csproj.AssemblyReference.cache
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\obj\Debug\WcfTask.csproj.CoreCompileInputs.cache
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\obj\Debug\WcfTask.dll
+C:\Users\ulise.ULISES\Documents\Proyectos Visual\Tismart\Controldeaplicaciones-TODOLIST\WcfTask\obj\Debug\WcfTask.pdb

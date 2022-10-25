@@ -21,6 +21,7 @@ namespace Controldeaplicaciones_TODOLIST.BD
             }
             catch (Exception e){ Console.WriteLine(e.StackTrace); }
         }
+
         protected void Desconectar()
         {
             try

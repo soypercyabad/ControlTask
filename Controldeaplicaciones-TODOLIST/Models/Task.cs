@@ -29,8 +29,9 @@ namespace Controldeaplicaciones_TODOLIST.Models
         public DateTime Fechater { get; set; }
 
         [Required]
-        public String Prioridad { get; set; }
+        public string Prioridad { get; set; }
         //public int status { get; set; } //1 ELIMINAR    2 ACTUALIZAR    3 COMPLETAR
+
     }
 }
 

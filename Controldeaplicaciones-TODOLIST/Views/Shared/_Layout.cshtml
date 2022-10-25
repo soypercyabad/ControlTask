@@ -19,7 +19,7 @@
     <script src="~/Content/Datetime.js"></script>
     <!--Script-->
     <!--<script src="~/Content/main.js"></script>-->
-    <script src="~/Content/data.js"></script>
+    <!--<script src="~/Content/data.js"></script>-->
     <!--Moment.js-->
     <script src="~/Content/moment.js"></script>
     <!--DataTables-->
@@ -27,11 +27,27 @@
 </head>
 
 <body>
+    <style>
+        a:link {
+            text-decoration: none;
+            color: white;
+            margin: 25px;
+        }
+    </style>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+        <div class="container-fluid" >
             <div class="container">
-                <h1 class="navbar-brand">𝐂𝐎𝐍𝐓𝐑𝐎𝐋 𝐃𝐄 𝐓𝐀𝐑𝐄𝐀𝐒</h1>
+                <h1 class="navbar-brand">@Html.ActionLink("𝐓𝐀𝐑𝐄𝐀𝐒 - 𝐒𝐐𝐋𝐒𝐄𝐑𝐕𝐄𝐑", "Index", "Home")</h1>
             </div>
+            <div class="container">
+                <h1 class="navbar-brand">@Html.ActionLink("𝐓𝐀𝐑𝐄𝐀𝐒 - 𝐖𝐂𝐅", "Index", "WCF")</h1>
+            </div>
+            <div class="container">
+                <h1 class="navbar-brand">@Html.ActionLink("𝐓𝐀𝐑𝐄𝐀𝐒 - 𝐖𝐄𝐁 𝐀𝐏𝐈", "Index", "API")</h1>
+            </div>
+            @*<div class="container">
+                <h1 class="navbar-brand">@Html.ActionLink("𝐓𝐀𝐑𝐄𝐀𝐒 - 𝐌𝐄𝐌𝐎𝐑𝐈𝐀", "Index", "WCF")</h1>
+            </div>*@
         </div>
     </nav>
     <div class="container-fluid">

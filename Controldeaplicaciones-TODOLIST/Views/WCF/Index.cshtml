@@ -1,0 +1,145 @@
+﻿@model List<Controldeaplicaciones_TODOLIST.Models.Task>
+@{
+    ViewBag.Title = "TodoList";
+}
+@using Controldeaplicaciones_TODOLIST.Models
+
+<div class="Container">
+    <br /><h1 style="text-align:center">𝕃𝕀𝕊𝕋𝔸 𝔻𝔼 𝕋𝔸ℝ𝔼𝔸𝕊 - 𝕎ℂ𝔽</h1><br />
+</div>
+
+
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <div class="row justify-content-between">
+        <div class="col-4">
+            <!-- Button trigger modal Add-->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newtask">
+                Agregar Tarea <i class="fa-solid fa-file-circle-plus"></i>
+            </button>
+        </div>
+        <div class="col-3">
+            <div class="hstack gap-3">
+                <!-- Input Filter Prioridad-->
+                <select class="form-select me-auto" aria-label="Default select example" id="cmbprioridad">
+                    <option selected value="Todos">Todos los datos</option>
+                    <option value="Baja">Prioridad Baja</option>
+                    <option value="Media">Prioridad Media</option>
+                    <option value="Alta">Prioridad Alta</option>
+                </select>
+                <button type="button" id="btnbuscarfilter" class="btn btn-secondary" onclick="BusquedaFilter()">Buscar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Table List -->
+<div class="col-md-12">
+    <div class="table-responsive">
+        <table class="table col-12" style="text-align:center" id="tableTask">
+            <thead class="table-dark">
+                <tr>
+                    <th style="text-align:center" scope="col">#</th>
+                    <th style="text-align:center" scope="col">Nombre</th>
+                    <th style="text-align:center" scope="col">Nota</th>
+                    <th style="text-align:center" scope="col">Fecha/Hora Creacion</th>
+                    <th style="text-align:center" scope="col">Estado</th>
+                    <th style="text-align:center" scope="col">Fecha/Hora Termino</th>
+                    <th style="text-align:center" scope="col">Prioridad</th>
+                    <th style="text-align:center" scope="col">Completado</th>
+                    <th style="text-align:center" scope="col">Actualizar</th>
+                    <th style="text-align:center" scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="bodyTabla">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Add-->
+<div class="modal fade" id="newtask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" id="cerraradd" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control clear" id="nameadd" placeholder="Crear Base de Datos" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nota</label>
+                    <textarea class="form-control clear" placeholder="Deje un comentario aquí" id="noteadd" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Fecha/Hora de la tarea</label>
+                    <p class="form-control" id="relojadd"> <p />
+                </div>
+                <div class="mb-3" hidden>
+                    <input type="number" class="form-control" id="statusadd" value="0" required readonly>
+                    <input type="text" class="form-control" id="relojaddfin" value="2001-12-25 00:00:00" required readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tipo de prioridad</label>
+                    <select class="form-select" aria-label="Default select example" id="priorityadd" required>
+                        <option selected>-- Seleccione una Opci&oacute;n--</option>
+                        <option class="bg-info p-2 text-dark bg-opacity-25" value="Baja">Baja</option>
+                        <option class="bg-warning p-2 text-dark bg-opacity-25" value="Media">Media</option>
+                        <option class="bg-danger p-2 text-dark bg-opacity-25" value="Alta">Alta</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" onclick="Agregartask()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Update-->
+<div class="modal fade" id="updatetask" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Actualizar Tarea</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" id="cerrarupdate" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <div class="mb-3" hidden>
+                    <label for="exampleFormControlInput1" class="form-label">Id de la tarea</label>
+                    <input type="text" class="form-control" id="idupdate" placeholder="Id" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nombre de la tarea</label>
+                    <input type="text" class="form-control obligatorio" id="nameupdate" placeholder="Crear Base de Datos" required>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Nota</label>
+                    <textarea class="form-control obligatorio" placeholder="Deje un comentario aquí" id="noteupdate" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Tipo de prioridad</label>
+                    <select class="form-select" aria-label="Default select example" id="priorityupdate" required disabled>
+                        <option selected>-- Seleccione una Opci&oacute;n--</option>
+                        <option class="bg-info p-2 text-dark bg-opacity-25" value="Baja">Baja</option>
+                        <option class="bg-warning p-2 text-dark bg-opacity-25" value="Media">Media</option>
+                        <option class="bg-danger p-2 text-dark bg-opacity-25" value="Alta">Alta</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-success" onclick="EditarTask()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Datetime-->
+<script src="~/Content/Datetime.js"></script>
+<!--Script-->
+<script src="~/Content/datawcf.js"></script>
