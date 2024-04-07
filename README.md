@@ -88,7 +88,7 @@
 
 <div align="center">
   <a href="https://buymeacoffee.com/https://www.buymeacoffee.com/percyabad" target="_blank">
-    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" width="52" height="40" alt="linkedin logo"  />
+    <img src="https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black" width="100%" height="40" alt="linkedin logo"  />
   </a>
 </div>
 
